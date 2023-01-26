@@ -3,20 +3,28 @@
     2. Создать квитанцию, где надо выставить счёт за звонки совершённые во временном промежутке с 20.00 до 7.00.
 */
 
+import dao.DAO;
+import dao.callDao.Call;
+import dao.callDao.CallsDao;
+import dao.institutionsDAO.InstitutionsDao;
+import fileException.FileException;
+import reader.Reader;
+import reader.ReaderImpl;
+
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
-//        try {
-//
-//            //Scanner scanner = new Scanner(System.in);
-//            System.out.println("Введите путь и имя файла со звонками в формате C:\\\\Users\\\\Username\\\\Desktop\\\\230000ххххххх.csv");
-//            System.out.println("Введите путь и имя файла с привязкой номеров к учрежденям в формате C:\\\\Users\\\\Username\\\\Desktop\\\\edu.csv");
-//
-//            printer.printToFile(callsSort.parsingCalls(calls, edu));
-//            //scanner.close();
-//        } catch (FileException e) {
-//            System.err.println(e.getStr());
-//        }
+        try {
+            DAO institutionsDao = new InstitutionsDao();
+            DAO callsDao = new CallsDao();
+            Reader reader = new ReaderImpl();
+            reader.fileToDAO("2300003713323.csv", callsDao);
+            callsDao.printDao();
+        } catch (FileException e) {
+            System.err.println(e.getStr());
+        }
 
     }
 }

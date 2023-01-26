@@ -1,9 +1,9 @@
-package callsSort;
+package sorter;
 
 import fileException.FileException;
 
 import java.util.List;
 
-public interface CallsSort {
+public interface Sorter {
     List<String> parsingCalls (List <String> calls, List<String> edu) throws FileException;
 }

@@ -1,9 +1,9 @@
-package callsSort;
+package sorter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CallsSortImpl implements CallsSort{
+public class SorterImpl implements Sorter {
     @Override
     public List<String> parsingCalls(List<String> calls, List<String> edu) {
         List <String> sortedCalls = new ArrayList<>();
