@@ -10,7 +10,7 @@ import java.util.List;
 public class PrinterImpl implements Printer{
     public void printToFile(List<String> array) throws FileException {
 
-        File file = new File ("SortedCalls.csv");
+        File file = new File ("TestFiles.csv");
 
         try (PrintWriter printWriter = new PrintWriter(file)) {
             printWriter.println(array.toString());

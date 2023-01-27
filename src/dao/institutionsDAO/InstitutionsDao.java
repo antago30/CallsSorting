@@ -1,6 +1,7 @@
 package dao.institutionsDAO;
 
 import dao.DAO;
+import dao.callDao.Call;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,19 @@ public class InstitutionsDao  implements DAO {
 
     @Override
     public void printDao() {
+        for(Institution str: institutionsDao) {
+            System.out.println(str);
+        }
+    }
 
+    @Override
+    public List<String> getDao() {
+        List <String> array = new ArrayList<>();
+
+        for (Institution str: institutionsDao) {
+            array.add(str.toString() + "\n");
+        }
+
+        return array;
     }
 }

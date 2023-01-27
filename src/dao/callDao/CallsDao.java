@@ -17,4 +17,14 @@ public class CallsDao implements DAO {
             System.out.println(str);
         }
     }
+
+    public List<String> getDao() {
+        List <String> array = new ArrayList<>();
+
+        for (Call str: callDao) {
+            array.add(str.toString());
+        }
+
+        return array;
+    }
 }
