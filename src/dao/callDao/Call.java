@@ -21,6 +21,10 @@ public class Call {
         this.price = price;
     }
 
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
     @Override
     public String toString() {
         return phoneNumber + ";" + typeOfConnection + ";" + direction + ";" + calledSubscriber + ";" + date +

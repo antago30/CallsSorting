@@ -1,7 +1,5 @@
 package dao.institutionsDAO;
 
-import java.util.Arrays;
-
 public class Institution {
     private final String name;
     private final int[] phoneNumbers;
@@ -11,8 +9,16 @@ public class Institution {
         this.phoneNumbers = phoneNumbers;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int[] getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
     @Override
     public String toString() {
-        return name + ", " + Arrays.toString(phoneNumbers);
+        return name;
     }
 }
