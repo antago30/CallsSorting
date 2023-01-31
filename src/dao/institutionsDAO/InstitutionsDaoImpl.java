@@ -1,9 +1,7 @@
 package dao.institutionsDAO;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class InstitutionsDaoImpl implements InstitutionDao {
     List<Institution> institutionsDao = new ArrayList<>();

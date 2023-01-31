@@ -25,9 +25,13 @@ public class Call {
         return phoneNumber;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return phoneNumber + ";" + typeOfConnection + ";" + direction + ";" + calledSubscriber + ";" + date +
-                ";" + time + ";" + duration + ";" + price;
+                ";" + time + ";" + duration + ";" + (double) price / 10000;
     }
 }

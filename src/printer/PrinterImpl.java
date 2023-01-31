@@ -8,12 +8,16 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class PrinterImpl implements Printer {
-    public void printToFile(List<String> array) throws FileException {
+    public void printToFile(List<String> array, String fileName) throws FileException {
 
-        File file = new File("TestFiles.csv");
+        File file = new File("Detailing" + "\\" +fileName + ".csv");
 
         try (PrintWriter printWriter = new PrintWriter(file)) {
-            printWriter.println(array.toString());
+
+            for (String str: array) {
+                printWriter.println(str);
+            }
+
         } catch (FileNotFoundException e) {
             throw new FileException("Error. File '" + file + "' is in use by another application.");
         }

@@ -12,8 +12,8 @@ import printer.Printer;
 import printer.PrinterImpl;
 import reader.Reader;
 import reader.ReaderImpl;
-import sorter.SorterByInstitutions;
-import sorter.SorterByInstitutionsImpl;
+import callDetails.CallDetails;
+import callDetails.CallDetailsImpl;
 
 
 public class Main {
@@ -27,8 +27,8 @@ public class Main {
             reader.fileToDAO("edu.csv", institutionsDao);
             reader.fileToDAO("2300003713323.csv", callsDao);
 
-            SorterByInstitutions sorter = new SorterByInstitutionsImpl();
-            sorter.sortingCalls(callsDao, institutionsDao);
+            CallDetails sorter = new CallDetailsImpl();
+            sorter.callDetails(callsDao, institutionsDao);
 
             Printer printer = new PrinterImpl();
 

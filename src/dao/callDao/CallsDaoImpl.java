@@ -12,11 +12,17 @@ public class CallsDaoImpl implements CallsDao {
 
     public List<String> search (int phoneNumber) {
         List <String> arrayResult = new ArrayList<>();
+        int totalCost = 0;
 
         for (Call call: callDao) {
-            if (phoneNumber == call.getPhoneNumber())
+            if (phoneNumber == call.getPhoneNumber()){
                 arrayResult.add(call.toString());
+                totalCost += call.getPrice();
+            }
         }
+
+        if (arrayResult.size() != 0)
+            arrayResult.add("Итоговая стоимость по номеру: " + totalCost / 10000 + "," + totalCost % 10000);
 
         return arrayResult;
     }
