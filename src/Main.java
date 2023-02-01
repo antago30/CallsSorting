@@ -8,12 +8,14 @@ import dao.callDao.CallsDaoImpl;
 import dao.institutionsDAO.InstitutionDao;
 import dao.institutionsDAO.InstitutionsDaoImpl;
 import fileException.FileException;
-import printer.Printer;
-import printer.PrinterImpl;
 import reader.Reader;
 import reader.ReaderImpl;
 import callDetails.CallDetails;
 import callDetails.CallDetailsImpl;
+import receiptGenerator.ReceiptGenerator;
+import receiptGenerator.ReceiptGeneratorImpl;
+
+import java.util.Scanner;
 
 
 public class Main {
@@ -23,14 +25,24 @@ public class Main {
             InstitutionDao institutionsDao = new InstitutionsDaoImpl();
             CallsDao callsDao = new CallsDaoImpl();
 
+            Scanner scanner = new Scanner(System.in);
             Reader reader = new ReaderImpl();
-            reader.fileToDAO("edu.csv", institutionsDao);
-            reader.fileToDAO("2300003713323.csv", callsDao);
+
+            System.out.println("Поместите файлы в папку Resources.");
+
+            System.out.println("Введите название файла с перечнем учреждений в формате edu.csv:");
+            reader.fileToDAO(scanner.nextLine(), institutionsDao);
+
+            System.out.println("Введите название файла с перечнем совершённых звонков в формате 230000ххххххх.csv");
+            reader.fileToDAO(scanner.nextLine(), callsDao);
 
             CallDetails sorter = new CallDetailsImpl();
-            sorter.callDetails(callsDao, institutionsDao);
+            sorter.callDetailsGeneration(callsDao, institutionsDao);
 
-            Printer printer = new PrinterImpl();
+            ReceiptGenerator receipt = new ReceiptGeneratorImpl();
+            receipt.generation(callsDao, institutionsDao);
+
+            System.out.println("Файлы детализации и квитанция к оплате находятся в папке Detailing");
 
         } catch (FileException e) {
             System.err.println(e.getStr());

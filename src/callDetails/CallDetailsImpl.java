@@ -12,18 +12,18 @@ import java.util.List;
 
 public class CallDetailsImpl implements CallDetails {
     @Override
-    public void callDetails(CallsDao calls, InstitutionDao edu) throws FileException {
+    public void callDetailsGeneration(CallsDao calls, InstitutionDao edu) throws FileException {
         List<String> sortedList = new ArrayList<>();
 
         for(Institution institution: edu.getInstitutionsDao()) {
-            sortedList.add(institution.getName() + ". Детализация звонков.");
+            sortedList.add(";" + institution.getName() + ". Детализация звонков.");
 
             for(int numberPhone: institution.getPhoneNumbers()){
                 sortedList.addAll(calls.search(numberPhone));
             }
 
             Printer printer = new PrinterImpl();
-            printer.printToFile(sortedList, institution.getName());
+            printer.printToFile(sortedList, institution.getName() + ".csv");
             sortedList.clear();
         }
     }

@@ -5,5 +5,5 @@ import dao.institutionsDAO.InstitutionDao;
 import fileException.FileException;
 
 public interface CallDetails {
-    void callDetails(CallsDao calls, InstitutionDao edu) throws FileException;
+    void callDetailsGeneration(CallsDao calls, InstitutionDao edu) throws FileException;
 }

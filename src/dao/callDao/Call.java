@@ -29,9 +29,13 @@ public class Call {
         return price;
     }
 
+    public String getTime() {
+        return time;
+    }
+
     @Override
     public String toString() {
         return phoneNumber + ";" + typeOfConnection + ";" + direction + ";" + calledSubscriber + ";" + date +
-                ";" + time + ";" + duration + ";" + (double) price / 10000;
+                ";" + time + ";" + duration + ";" + Double.toString((double) price / 10000).replace(".", ",");
     }
 }

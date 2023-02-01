@@ -10,6 +10,10 @@ public class CallsDaoImpl implements CallsDao {
         callDao.add(data);
     }
 
+    public List<Call> getCallDao() {
+        return callDao;
+    }
+
     public List<String> search (int phoneNumber) {
         List <String> arrayResult = new ArrayList<>();
         int totalCost = 0;
@@ -22,7 +26,7 @@ public class CallsDaoImpl implements CallsDao {
         }
 
         if (arrayResult.size() != 0)
-            arrayResult.add("Итоговая стоимость по номеру: " + totalCost / 10000 + "," + totalCost % 10000);
+            arrayResult.add(";Итоговая стоимость по номеру: " + ";;;;;;" + totalCost / 10000 + "," + totalCost % 10000);
 
         return arrayResult;
     }
