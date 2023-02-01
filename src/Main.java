@@ -28,7 +28,7 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             Reader reader = new ReaderImpl();
 
-            System.out.println("Поместите файлы в папку Resources.");
+            System.out.println("Поместите файлы корень проекта.");
 
             System.out.println("Введите название файла с перечнем учреждений в формате edu.csv:");
             reader.fileToDAO(scanner.nextLine(), institutionsDao);

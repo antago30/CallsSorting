@@ -17,7 +17,7 @@ public class ReaderImpl implements Reader{
         String nameInstitution = "";
         StringBuilder phoneNumber = new StringBuilder();
 
-        try (Scanner scanner = new Scanner(new File("Resources" + "\\" + files))){
+        try (Scanner scanner = new Scanner(new File(files))){
 
             while (scanner.hasNextLine()) {
                 String[] parseStr = scanner.nextLine().split(";");
@@ -54,7 +54,7 @@ public class ReaderImpl implements Reader{
     @Override
     public void fileToDAO (String files, CallsDao dao) throws FileException {
 
-        try (Scanner scanner = new Scanner(new File("Resources" + "\\" + files))){
+        try (Scanner scanner = new Scanner(new File(files))){
 
             while (scanner.hasNextLine()) {
                 String[] parseStr = scanner.nextLine().split(";");
